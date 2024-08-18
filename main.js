@@ -1,4 +1,7 @@
-document.querySelector(".try").addEventListener("click",()=> {
+document.querySelector(".tryw").addEventListener("click",()=> {
+	location.reload();
+})
+document.querySelector(".tryl").addEventListener("click",()=> {
 	location.reload();
 })
 document.querySelector(".control").onclick = function(){
