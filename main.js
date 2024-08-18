@@ -1,7 +1,4 @@
-document.querySelector(".lost").addEventListener("click",()=> {
-	location.reload();
-})
-document.querySelector(".winner").addEventListener("click",()=> {
+document.querySelector(".try").addEventListener("click",()=> {
 	location.reload();
 })
 document.querySelector(".control").onclick = function(){

@@ -60,6 +60,19 @@ body {
     font-size: 30px;
     text-align: center;
     border-radius: 6px;
+}
+.lost p {
+    margin-top:80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
     cursor: pointer;
 }
 .winner {
@@ -83,9 +96,21 @@ body {
     font-size: 30px;
     text-align: center;
     border-radius: 6px;
+}
+.winner p {
+    margin-top:80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
     cursor: pointer;
 }
-
 .info-container {
     width: 1080px;
     margin: 20px auto 0;
