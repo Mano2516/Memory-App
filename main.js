@@ -3,28 +3,28 @@ document.querySelector(".control").onclick = function(){
 
     if(name===null||name===""){
         document.querySelector(".name span").innerHTML=('UnKnown')
-		setInterval(update,1000)
-		update()
+		// setInterval(update,1000)
+		// update()
     }else {
         document.querySelector(".name span").innerHTML=name
-		setInterval(update,1000)
-		update()
+		// setInterval(update,1000)
+		// update()
     }
 
 		(document.getElementById('main')).loop=true;
 		(document.getElementById('main')).play();
     document.querySelector(".control").remove();
 }
-	let timer = document.querySelector(".timer")
-	let min = document.querySelector(".minute")
-	let sec = document.querySelector(".second")
-	console.log(sec.innerHTML)
-	function update(){
-		if(sec.innerHTML===`00`) {
-			sec.innerHTML=`59`
-		}
-		sec.innerHTML =parseInt(sec.innerHTML)-1;
-	}
+	// let timer = document.querySelector(".timer")
+	// let min = document.querySelector(".minute")
+	// let sec = document.querySelector(".second")
+	// console.log(sec.innerHTML)
+	// function update(){
+	// 	if(sec.innerHTML===`00`) {
+	// 		sec.innerHTML=`59`
+	// 	}
+	// 	sec.innerHTML =parseInt(sec.innerHTML)-1;
+	// }
 
 let duration = 1500,
     blocksContainer = document.querySelector(".memory-game"),
