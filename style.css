@@ -242,6 +242,7 @@ body {
     border-radius: 7px;
     cursor: pointer;
     color: #fff;
+     text-align: center;
 }
 .contain {
     width: 100%;
