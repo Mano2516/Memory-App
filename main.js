@@ -1,30 +1,27 @@
+document.querySelector(".lost").addEventListener("click",()=> {
+	location.reload();
+})
 document.querySelector(".control").onclick = function(){
     let name = prompt("What is your name");
 
     if(name===null||name===""){
         document.querySelector(".name span").innerHTML=('UnKnown')
-		// setInterval(update,1000)
-		// update()
+		setInterval(update,1000)
+		update()
     }else {
         document.querySelector(".name span").innerHTML=name
-		// setInterval(update,1000)
-		// update()
+		setInterval(update,1000)
+		update()
     }
 
 		(document.getElementById('main')).loop=true;
 		(document.getElementById('main')).play();
     document.querySelector(".control").remove();
 }
-	// let timer = document.querySelector(".timer")
-	// let min = document.querySelector(".minute")
-	// let sec = document.querySelector(".second")
-	// console.log(sec.innerHTML)
-	// function update(){
-	// 	if(sec.innerHTML===`00`) {
-	// 		sec.innerHTML=`59`
-	// 	}
-	// 	sec.innerHTML =parseInt(sec.innerHTML)-1;
-	// }
+let tries = document.querySelector(".tries span");
+	let timer = document.querySelector(".timer")
+	let min = document.querySelector(".minute")
+	let sec = document.querySelector(".second")
 
 let duration = 1500,
     blocksContainer = document.querySelector(".memory-game"),
@@ -101,7 +98,6 @@ function stopClicking () {
 }
 
 function checkMatched (fristOne ,secondOne){
-	let tries = document.querySelector(".tries span");
 
 
   if (fristOne.dataset.img===secondOne.dataset.img) {
@@ -130,4 +126,17 @@ function checkMatched (fristOne ,secondOne){
 
 	}
 
+}
+function update(){
+	if(sec.innerHTML===`0`&& sec.innerHTML !== '1') {
+		sec.innerHTML=`59`
+		min.innerHTML=parseInt(min.innerHTML)-1;
+	}
+	sec.innerHTML =parseInt(sec.innerHTML)-1;
+	if((sec.innerHTML=== '0' && min.innerHTML==='0')|| tries.innerHTML==='20') {
+		document.getElementById('main').pause();
+		clearInterval(1)
+		document.querySelector(".lost").style.display = 'block';
+	}
+	// clearInterval(1)
 }
