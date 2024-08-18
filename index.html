@@ -10,9 +10,15 @@
 <body>
     <div class="control">
         <span>Start Game</span>
+<p>You Have 15 Tries</p>
     </div>
     <div class="lost">
         <span>Game Over</span>
+        <audio src="end game.mp3" id="end"></audio>
+    </div>
+    <div class="winner">
+        <span>You Win</span>
+        <audio src="win.mp3"id="win"></audio>
     </div>
     <div class="info-container">
         <div class="name">
@@ -20,6 +26,9 @@
         </div>
         <div class="tries">
             Wrong Tries :<span>0</span>
+        </div>
+        <div class="right">
+            True Tries : <span>0</span>
         </div>
         <div class="timer"><span class="minute">5</span>:<span class="second">0</span></div>
         <audio src="WhatsApp Audio 2024-08-18 at 01.15.22_31e74861.mp3" preload="auto" id="main"></audio>

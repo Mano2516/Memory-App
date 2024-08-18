@@ -1,6 +1,9 @@
 document.querySelector(".lost").addEventListener("click",()=> {
 	location.reload();
 })
+document.querySelector(".winner").addEventListener("click",()=> {
+	location.reload();
+})
 document.querySelector(".control").onclick = function(){
     let name = prompt("What is your name");
 
@@ -19,6 +22,7 @@ document.querySelector(".control").onclick = function(){
     document.querySelector(".control").remove();
 }
 let tries = document.querySelector(".tries span");
+	right = document.querySelector(".right span");
 	let timer = document.querySelector(".timer")
 	let min = document.querySelector(".minute")
 	let sec = document.querySelector(".second")
@@ -43,9 +47,7 @@ blocks.forEach((block , index)=>{
 
 })
 
-	let all = document.querySelectorAll('.game-block');
-		let m = Array.from(all);
-	let check = m.every((ele)=>ele.classList.contains("has-match"));
+
 
 
 
@@ -96,7 +98,6 @@ function stopClicking () {
 	},duration);
 
 }
-
 function checkMatched (fristOne ,secondOne){
 
 
@@ -104,13 +105,11 @@ function checkMatched (fristOne ,secondOne){
 
     fristOne.classList.remove('is-flipped');
     secondOne.classList.remove('is-flipped');
-
     fristOne.classList.add('has-match');
     secondOne.classList.add('has-match');
-
-		document.getElementById('success').play()
-
-  }
+		right.innerHTML=parseInt(right.innerHTML)+1;
+		document.getElementById('success').play();
+		}
 	else {
 
 		tries.innerHTML = parseInt(tries.innerHTML)+1;
@@ -133,10 +132,25 @@ function update(){
 		min.innerHTML=parseInt(min.innerHTML)-1;
 	}
 	sec.innerHTML =parseInt(sec.innerHTML)-1;
-	if((sec.innerHTML=== '0' && min.innerHTML==='0')|| tries.innerHTML==='20') {
+	if((sec.innerHTML=== '0' && min.innerHTML==='0')|| tries.innerHTML==='15') {
 		document.getElementById('main').pause();
 		clearInterval(1)
 		document.querySelector(".lost").style.display = 'block';
+		document.getElementById('end').play();
+	}
+	if(right.innerHTML==='10') {
+		document.getElementById('main').pause();
+		clearInterval(1)
+		document.querySelector(".winner").style.display = 'block';
+		document.getElementById('win').play();
 	}
 	// clearInterval(1)
 }
+
+
+// let all = document.querySelectorAll('.game-block');
+// let m = Array.from(all);
+// console.log(m);
+// let check = m.every((ele)=>ele.classList.contains("has-match"));
+// console.log(check)
+

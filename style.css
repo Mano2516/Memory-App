@@ -13,6 +13,32 @@ body {
     z-index: 100;
     background-color: rgba(3,169,244,.9);
 }
+.control span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.control p {
+    margin-top:80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+}
 .lost {
     position: fixed;
     left: 0;
@@ -36,7 +62,17 @@ body {
     border-radius: 6px;
     cursor: pointer;
 }
-.control span {
+.winner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(3,169,244,.9);
+    display:none ;
+}
+.winner span {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -49,6 +85,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
 }
+
 .info-container {
     width: 1080px;
     margin: 20px auto 0;
