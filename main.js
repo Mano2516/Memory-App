@@ -165,16 +165,27 @@ function update(){
 	// clearInterval(1)
 }
 function addTOArray(player) {
-	const nameOFPlayer= {
-		n: player ,
-		t :tries.textContent,
-	};
+	if(player===""||player===null){
+		const nameOFPlayer= {
+			n:"Unknown",
+			t :tries.textContent,
+		};
+		arrayOfPlayers.push(nameOFPlayer)
+		arrayOfPlayers.sort((a, b) => a.t - b.t);
+		addTopage(arrayOfPlayers);
+		addDataToLocalstorageFrom(arrayOfPlayers);
+	}else{
+		const nameOFPlayer= {
+			n:player,
+			t :tries.textContent,
+		};
+		arrayOfPlayers.push(nameOFPlayer)
+		arrayOfPlayers.sort((a, b) => a.t - b.t);
+		addTopage(arrayOfPlayers);
+		addDataToLocalstorageFrom(arrayOfPlayers);
+	}
 
-	arrayOfPlayers.push(nameOFPlayer)
-	arrayOfPlayers.sort((a, b) => a.t - b.t);
-	addTopage(arrayOfPlayers);
-	console.log(arrayOfPlayers);
-	addDataToLocalstorageFrom(arrayOfPlayers);
+
 }
 function addTopage(arrayOfPlayers){
 	arrayOfPlayers.sort((a, b) => a.t - b.t);
