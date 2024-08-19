@@ -7,12 +7,15 @@ document.querySelector(".tryl").addEventListener("click",()=> {
 let field = document.querySelector(".user")
 
 let arrayOfPlayers =[];
+let sort = [];
 
 if(localStorage.getItem("players")){
-    arrayOfPlayers=JSON.parse(localStorage.getItem("players"));
+	arrayOfPlayers.sort((a, b) => a.t - b.t)
+    sort=JSON.parse(localStorage.getItem("players"));
+	sort.sort((a, b) => a.t - b.t);
+	arrayOfPlayers= sort;
 }
 getDataFromLocalStorage();
-
 
 
 document.getElementById('go').onclick = function(){
@@ -168,10 +171,13 @@ function addTOArray(player) {
 	};
 
 	arrayOfPlayers.push(nameOFPlayer)
+	arrayOfPlayers.sort((a, b) => a.t - b.t);
 	addTopage(arrayOfPlayers);
+	console.log(arrayOfPlayers);
 	addDataToLocalstorageFrom(arrayOfPlayers);
 }
 function addTopage(arrayOfPlayers){
+	arrayOfPlayers.sort((a, b) => a.t - b.t);
 	arrayOfPlayers.forEach((player)=>{
 		let parent = document.createElement("div")
 		parent.classList.add("parent")
@@ -198,8 +204,10 @@ function getDataFromLocalStorage(){
         addTopage(playName);
     }
 }
+
 // let all = document.querySelectorAll('.game-block');
 // let m = Array.from(all);
 // console.log(m);
 // let check = m.every((ele)=>ele.classList.contains("has-match"));
 // console.log(check)
+
