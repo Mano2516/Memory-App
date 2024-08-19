@@ -4,23 +4,36 @@ document.querySelector(".tryw").addEventListener("click",()=> {
 document.querySelector(".tryl").addEventListener("click",()=> {
 	location.reload();
 })
-document.querySelector(".control").onclick = function(){
-    let name = prompt("What is your name");
+let field = document.querySelector(".user")
 
-    if(name===null||name===""){
-        document.querySelector(".name span").innerHTML=('UnKnown')
+let arrayOfPlayers =[];
+
+if(localStorage.getItem("players")){
+    arrayOfPlayers=JSON.parse(localStorage.getItem("players"));
+}
+getDataFromLocalStorage();
+
+
+
+document.getElementById('go').onclick = function(){
+	let nam = field.value;
+    if(nam===null||nam===""){
+        document.querySelector(".name span").innerHTML=('Unknown')
 		setInterval(update,1000)
 		update()
     }else {
-        document.querySelector(".name span").innerHTML=name
+        document.querySelector(".name span").innerHTML=nam
 		setInterval(update,1000)
 		update()
     }
 
 		(document.getElementById('main')).loop=true;
 		(document.getElementById('main')).play();
-    document.querySelector(".control").remove();
+    	document.querySelector(".control").remove();
+		// document.querySelector(".go").removeParent()
 }
+
+
 let tries = document.querySelector(".tries span");
 	right = document.querySelector(".right span");
 	let timer = document.querySelector(".timer")
@@ -101,7 +114,7 @@ function stopClicking () {
 function checkMatched (fristOne ,secondOne){
 
 
-  if (fristOne.dataset.img===secondOne.dataset.img) {
+if (fristOne.dataset.img===secondOne.dataset.img) {
 
     fristOne.classList.remove('is-flipped');
     secondOne.classList.remove('is-flipped');
@@ -143,14 +156,50 @@ function update(){
 		clearInterval(1)
 		document.querySelector(".winner").style.display = 'block';
 		document.getElementById('win').play();
+		addTOArray(field.value);
+
 	}
 	// clearInterval(1)
 }
+function addTOArray(player) {
+	const nameOFPlayer= {
+		n: player ,
+		t :tries.textContent,
+	};
+
+	arrayOfPlayers.push(nameOFPlayer)
+	addTopage(arrayOfPlayers);
+	addDataToLocalstorageFrom(arrayOfPlayers);
+}
+function addTopage(arrayOfPlayers){
+	arrayOfPlayers.forEach((player)=>{
+		let parent = document.createElement("div")
+		parent.classList.add("parent")
+		let us= document.createElement("span");
+		us.appendChild(document.createTextNode(player.n));
+		let ran = document.createElement("span");
+		ran.appendChild(document.createTextNode(player.t));
+		let container = document.querySelector(".rank")
+		parent.appendChild(us);
+		parent.appendChild(ran)
+		container.appendChild(parent)
+	})
+}
 
 
+function addDataToLocalstorageFrom(arrayOfPlayers){
+    window.localStorage.setItem("players",JSON.stringify(arrayOfPlayers));
+}
+
+function getDataFromLocalStorage(){
+    let data = window.localStorage.getItem("players");
+    if(data){
+        let playName = JSON.parse(data);
+        addTopage(playName);
+    }
+}
 // let all = document.querySelectorAll('.game-block');
 // let m = Array.from(all);
 // console.log(m);
 // let check = m.every((ele)=>ele.classList.contains("has-match"));
 // console.log(check)
-

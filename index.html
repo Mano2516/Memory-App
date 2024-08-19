@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="control">
-        <span>Start Game</span>
-<p>You Have 15 Tries</p>
+        <input type="text" name="" class="user" placeholder="your Name" >
+        <span id="go">Start game</span>
     </div>
     <div class="lost">
         <span>Game Over</span>
@@ -120,6 +120,12 @@
     </div>
     <audio id="success" src="success.mp3" preload="auto"></audio>
     <audio id="fail" src="fail.mp3" preload="auto"></audio>
+    <div class="rank">
+        <div class="txt">
+            <span>Name</span>
+            <span>Number of wrong tries</span>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
