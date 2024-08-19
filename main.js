@@ -1,3 +1,4 @@
+let contain = document.querySelector(".contain")
 document.querySelector(".tryw").addEventListener("click",()=> {
 	location.reload();
 })
@@ -7,13 +8,9 @@ document.querySelector(".tryl").addEventListener("click",()=> {
 let field = document.querySelector(".user")
 
 let arrayOfPlayers =[];
-let sort = [];
 
 if(localStorage.getItem("players")){
-	arrayOfPlayers.sort((a, b) => a.t - b.t)
-    sort=JSON.parse(localStorage.getItem("players"));
-	sort.sort((a, b) => a.t - b.t);
-	arrayOfPlayers= sort;
+    arrayOfPlayers=JSON.parse(localStorage.getItem("players"));
 }
 getDataFromLocalStorage();
 
@@ -199,7 +196,8 @@ function addTopage(arrayOfPlayers){
 		let container = document.querySelector(".rank")
 		parent.appendChild(us);
 		parent.appendChild(ran)
-		container.appendChild(parent)
+		contain.appendChild(parent)
+		container.appendChild(contain)
 	})
 }
 
@@ -215,7 +213,12 @@ function getDataFromLocalStorage(){
         addTopage(playName);
     }
 }
-
+	let reset = document.querySelector(".reset");
+	reset.addEventListener("click",()=> {
+		localStorage.clear()
+		contain.innerHTML ="";
+		arrayOfPlayers=[];
+	})
 // let all = document.querySelectorAll('.game-block');
 // let m = Array.from(all);
 // console.log(m);
